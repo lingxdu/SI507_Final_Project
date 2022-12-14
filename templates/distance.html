@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>Restaurants's Distance information</title>
+</head>
+
+<style>
+        #current_html {
+                color: #972B75;
+                background-color: white;
+                text-decoration: underline;
+                text-decoration-style: dotted;
+        }
+        .skip a {
+                background: white;
+                position: absolute;
+                top: -40px; 
+                left: 0;
+                -webkit-transition: top 1s ease-out;
+                transition: top 1s ease-out;
+                z-index: 1;
+        }
+
+        .skip a:focus {
+                background: white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-transition: top 1s ease-out;
+                transition: top 1s ease-out;
+        }
+
+        .skip a:hover {
+                text-decoration: underline;
+                text-decoration-style: dotted;
+        }
+
+        nav a {
+                color: white;
+                font-weight: bold;
+                text-decoration: underline;
+        }
+
+        nav li {
+                padding-right: 20px;
+        }
+
+        nav {
+                background-color: #972B75;
+                padding: 10px 0;
+                margin-bottom: 5px;
+        } 
+
+        .nav_links {
+                display: flex;
+                justify-content: left;
+        }
+
+        nav a:focus {
+                border: 2px solid orange;
+        }
+
+        nav a:hover {
+                text-decoration: underline;
+                text-decoration-style: wavy;
+        }
+
+        ::marker {
+                color:  #9E2F7B;
+        }
+        
+        h1 {
+                font-family: "Poppins", sans-serif; 
+                font-size: 2em;
+                font-weight: bold;
+                text-align: center;
+                color: #9E2F7B;
+                margin-top: 2%;
+        }
+
+        h3 {
+                text-align: center;
+                font-family: sans-serif; 
+                font-size: 1.5em;
+                font-weight: bold; 
+                color: #9E2F7B;
+                width: center;
+                padding-top: 4%;
+                margin-top: 2%;
+        }
+
+        body {
+                font-family: sans-serif; 
+                text-align: center;
+                font-size: 16px;
+                margin: 0;
+                padding: 0px;
+        }
+        
+        p {
+                padding-bottom: 1%;
+                margin-bottom: 0;
+        }
+
+        form {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr), 20px;
+                }
+
+        #radio_u {
+                grid-column: 2 / span 1;
+                grid-row: 1 / span 1;
+                text-align: left;
+        }
+
+        #radio_c {
+                grid-column: 2 / span 1;
+                grid-row: 2 / span 1;
+                text-align: left;
+        }
+
+        #radio_p {
+                grid-column: 2 / span 1;
+                grid-row: 3 / span 1;
+                text-align: left;
+        }
+
+
+        #radio_u_t {
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 1;
+                text-align: center;
+        }
+
+        #radio_c_t {
+                grid-column: 1 / span 1;
+                grid-row: 2 / span 1;
+                text-align: center;
+        }
+
+        #radio_p_t {
+                grid-column: 1 / span 1;
+                grid-row: 3 / span 1;
+                text-align: center;
+        }
+
+        .submit {
+                text-align: center;
+                font-family: sans-serif; 
+                font-size: 1.5em;
+                font-weight: bold; 
+                color: #9E2F7B; 
+                margin-top: 4%;
+                margin-bottom: 10%;
+                grid-column: 2 / span 1;
+                grid-row: 4 / span 1;
+        }
+
+        table {
+                text-align: center;
+                font-family: sans-serif; 
+                font-size: 1.2em;
+                width: 80%;
+        }
+
+        .submit {
+                text-align: center;
+                font-family: sans-serif; 
+                font-size: 1.5em;
+                font-weight: bold; 
+                color: #9E2F7B; 
+                margin-top: 4%;
+        }
+
+        footer {
+                font-size: 0.75em;
+                color: white;
+                background-color: #521940;
+                padding-top: 2px;
+                text-align: center;
+        }
+</style>
+
+<body class="container">
+        <div class="skip"><a href="#main">Skip to content</a></div>
+        <header>
+                <nav>
+                <ul class="nav_links">
+                        <li class="nav_item"><a href="index.html">Home</a></li>
+                        <li class="nav_item"><a href="rating.html">Rating</a></li>
+                        <li class="nav_item"><a href="mean.html">Mean</a></li>
+                        <li class="nav_item"><a href="price.html">Price</a></li>
+                        <li class="nav_item"><a href="distance.html" id="current_html">Distance</a></li>                       
+                </ul>
+                </nav>
+        </header>
+
+        <main id="main">
+                <h1>Get restaurants of different distance levels!</h1>
+                <h2>Look at restaurants with a specific distance level!</h2>
+                <br>
+
+
+                <form action='/distance_results' method='POST'>
+                        <h3 id="radio_u_t">University: </h3>
+                        <p id="radio_u">
+                        <input type='radio' name='university' 
+                                value='Central Michigan University'/> Central Michigan University <br/>
+                        <input type='radio' name='university' 
+                                value='Eastern Michigan University'/> Eastern Michigan University <br/>
+                        <input type='radio' name='university' 
+                                value='Michigan State University'/> Michigan State University <br/>
+                        <input type='radio' name='university' 
+                                value='Michigan Technological University'/> Michigan Technological University <br/>
+                        <input type='radio' name='university' 
+                                value='Oakland University'/> Oakland University <br/>
+                        <input type='radio' name='university' 
+                                value='University of Michigan'/> University of Michigan <br/>
+                        <input type='radio' name='university' 
+                                value='Wayne State University'/> Wayne State University <br/>
+                        <input type='radio' name='university' 
+                                value='Western Michigan University'/> Western Michigan University <br/>
+                        </p>
+
+                        <h3 id="radio_c_t">Cuisine: </h3>
+                        <p id="radio_c">
+                        <input type='radio' name='cuisine' 
+                                value='American'/> American <br/>
+                        <input type='radio' name='cuisine' 
+                                value='Chinese'/> Chinese <br/>
+                        <input type='radio' name='cuisine' 
+                                value='Italian'/> Italian <br/>
+                        <input  type='radio' name='cuisine' 
+                                value='Japanese'/> Japanese <br/>
+                        <input type='radio' name='cuisine' 
+                                value='Mexican'/> Mexican <br/>
+                        <input type='radio' name='cuisine' 
+                                value='Thai'/> Thai <br/>
+                        </P>
+
+                        <h3 id="radio_p_t">Distance level: </h3>
+                        <p id="radio_p">
+                        <input type='radio' name='distance_level' 
+                                value='near'/> Near <br/>
+                        <input type='radio' name='distance_level' 
+                                value='far'/> Far <br/>
+                        <input type='radio' name='distance_level' 
+                                value='faraway'/> Faraway <br/>
+                        </p>
+
+                        <input class='submit' type='submit' value='Get Restaurants!'/>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                </form>
+        </main>
+</body>
+
+<footer>    
+        <p>
+        &copy; Lingxiao Du
+        <br>Master of Urban and Regional Planning 2023
+        <br>Taubman College of Architecture and Urban Planning
+        <br>University of Michigan
+        <br>lingxdu@umich.edu | (734) 510-2010 |
+        </p>
+</footer>
+
+</html>

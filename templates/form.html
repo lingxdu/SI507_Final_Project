@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>Restaurants: Results</title>
+</head>
+
+<style>
+        #current_html {
+                color: #972B75;
+                background-color: white;
+                text-decoration: underline;
+                text-decoration-style: dotted;
+        }
+        .skip a {
+                background: white;
+                position: absolute;
+                top: -40px; 
+                left: 0;
+                -webkit-transition: top 1s ease-out;
+                transition: top 1s ease-out;
+                z-index: 1;
+        }
+
+        .skip a:focus {
+                background: white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-transition: top 1s ease-out;
+                transition: top 1s ease-out;
+        }
+
+        .skip a:hover {
+                text-decoration: underline;
+                text-decoration-style: dotted;
+        }
+
+        nav a {
+                color: white;
+                font-weight: bold;
+                text-decoration: underline;
+        }
+
+        nav li {
+                padding-right: 20px;
+        }
+
+        nav {
+                background-color: #972B75;
+                padding: 10px 0;
+                margin-bottom: 5px;
+        } 
+
+        .nav_links {
+                display: flex;
+                justify-content: left;
+        }
+
+        nav a:focus {
+                border: 2px solid orange;
+        }
+
+        nav a:hover {
+                text-decoration: underline;
+                text-decoration-style: wavy;
+        }
+
+        ::marker {
+                color:  #9E2F7B;
+        }
+        
+        h1 {
+                font-family: "Poppins", sans-serif; 
+                font-size: 2em;
+                font-weight: bold;
+                text-align: center;
+                color: #9E2F7B;
+                margin-top: 2%;
+        }
+
+        h3 {
+                text-align: center;
+                font-family: sans-serif; 
+                font-size: 1.5em;
+                font-weight: bold; 
+                color: #9E2F7B;
+                width: center;
+                padding-top: 4%;
+                margin-top: 2%;
+        }
+
+        body {
+                font-family: sans-serif; 
+                text-align: center;
+                font-size: 16px;
+                margin: 0;
+                padding: 0px;
+        } 
+
+        p {
+                padding-bottom: 1%;
+                margin-bottom: 0;
+        }
+
+        .small {
+                font-size: 12px;
+        }
+
+        table {
+                text-align: center;
+                font-family: sans-serif; 
+                font-size: 1.2em;
+                width: 80%;
+        }
+
+        span {
+                font-weight: bold;
+                color: #9E2F7B; 
+        }
+
+        .submit {
+                text-align: center;
+                font-family: sans-serif; 
+                font-size: 1.5em;
+                font-weight: bold; 
+                color: #9E2F7B; 
+                margin-top: 4%;
+        }
+
+        footer {
+                font-size: 0.75em;
+                color: white;
+                background-color: #521940;
+                padding-top: 2px;
+                text-align: center;
+        }
+</style>
+
+<body class="container">
+        <div class="skip"><a href="#main">Skip to content</a></div>
+        <header>
+                <nav>
+                <ul class="nav_links">
+                        <li class="nav_item"><a href="index.html" id="current_html">Home</a></li>
+                        <li class="nav_item"><a href="rating.html">Rating</a></li>
+                        <li class="nav_item"><a href="mean.html">Mean</a></li>
+                        <li class="nav_item"><a href="price.html">Price</a></li>
+                        <li class="nav_item"><a href="distance.html">Distance</a></li>
+                </ul>
+                </nav>
+        </header>
+
+        <main id="main">
+                <h1>Here are the restaurants information!</h1>
+                <h2>Enjoy your time!</h2>
+                <p>Here are restaurants sorted by <span>{{sort}}</span> in <span>{{dir}}</span> order in <span>{{cuisine_select}}</span> cuisine around <span>{{university_select}}!</p>
+                <p class="small">Note: High number means high rating, expensive price or far away !</p>
+                <br>
+                <table>
+                <tr>
+                        <th>Restaurant Name</th>
+                        <br>
+                        <th>{{sort}}</th>
+                </tr>
+
+                {% for row in results %}  <!-- #for必须在tr的上面 -->
+                </tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                </tr>
+                {% endfor %}
+
+
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+        </main>
+</body>
+
+<footer>    
+        <p>
+        &copy; Lingxiao Du
+        <br>Master of Urban and Regional Planning 2023
+        <br>Taubman College of Architecture and Urban Planning
+        <br>University of Michigan
+        <br>lingxdu@umich.edu | (734) 510-2010 |
+        </p>
+</footer>
+
+</html>
